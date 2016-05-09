@@ -1,0 +1,13 @@
+CC = g++
+CFLAGS = -Wall
+DEPS = Spreadsheet.h SpreadsheetCell.h
+OBJ =  Spreadsheet.o SpreadsheetCell.o
+
+%.o: %.cpp $(DEPS)
+		$(CC) $(CFLAGS) -o $@ $<
+
+runmain: $(OBJ)
+		g++ $(CFLAGS) -o $@ $^
+
+
+

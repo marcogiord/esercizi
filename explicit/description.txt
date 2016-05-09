@@ -1,0 +1,2 @@
+excercize on how to use explicit to avoid implicit conversion of type in a class
+if you remove the explicit the code will compile 

@@ -1,0 +1,2 @@
+runmain: main.cpp Logger.cpp
+		g++ -o runmain main.cpp Logger.cpp
