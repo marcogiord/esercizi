@@ -23,14 +23,14 @@ class Grid {
 	int getHeight() const { return mHeight; }
     int getWidth() const { return mWidth; }
 	
-	// static const
+	// static const of default parameters
 	static const int kDefaultHeight = 10;
     static const int kDefaultWidth = 10;
   
   protected:
     void copyFrom(const Grid<T, Container>& src);
   	Container* mCells;
-    int mWidth, mHeight;		
+    int mWidth, mHeight;
 };
 #endif 
 

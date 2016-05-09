@@ -1,24 +1,26 @@
 //#GridDefinitions.h
 #include "iostream"
-template<typename T>
+template<typename T, typename Container>
 const int Grid<T>::kDefaultHeight;
 
-template<typename T>
+template<typename T, typename Container>
 const int Grid<T>::kDefaultWidth;
 
-template<typename T>
-Grid<T>::Grid(int inWidth , int inHeight): mWidth(inWidth),mHeight(inHeight)
+template<typename T, typename Container>
+Grid<T, Container>::Grid(int inWidth , int inHeight): mWidth(inWidth), mHeight(inHeight)
 {
-	mCells = new T*[mWidth];
+	// dynamicallty allocate an array of mWidth containers 
+	mCells = new Container[mWidth];
 	for (int i=0; i<mWidth; i++){
-		mCells [i]=new T[mHeight];
+		// resize each container so that it can hold mHeight containers  
+		mCells[i].resize(mHeight);
 	}
 }
 
 //destructor 
-template<typename T>
-Grid<T>::~Grid(){
-	delete mCells;
+template<typename T, typename Container>
+Grid<T, Container>::~Grid(){
+	delete [] mCells;
 }
 
 // copy constructor
