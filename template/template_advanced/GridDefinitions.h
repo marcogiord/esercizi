@@ -1,10 +1,10 @@
 //#GridDefinitions.h
 #include "iostream"
 template<typename T, typename Container>
-const int Grid<T>::kDefaultHeight;
+const int Grid<T, Container>::kDefaultHeight;
 
 template<typename T, typename Container>
-const int Grid<T>::kDefaultWidth;
+const int Grid<T, Container>::kDefaultWidth;
 
 template<typename T, typename Container>
 Grid<T, Container>::Grid(int inWidth , int inHeight): mWidth(inWidth), mHeight(inHeight)
@@ -23,59 +23,64 @@ Grid<T, Container>::~Grid(){
 	delete [] mCells;
 }
 
-// copy constructor
-	//Grid(const Grid<T>& src);
-template<typename T>
-template<typename E>
-Grid<T>::Grid(const Grid<E>& src){
-	copyFrom(src);
-}
-
-// assignemnt
-template<typename T>
-template<typename E>
-Grid<T>& Grid<T>::operator=(const Grid<E>& rhs){
-	if(this==&rhs){
-		return (*this);
-	}
-	// delete memory 
-	for (int i=0; i<mWidth; i++){
-		delete [] mCells[i];
-	}
-	delete [] mCells;
-	// copy from 
-	copyFrom(rhs);
-	return (*this);
-}
-
-template<typename T>
-template<typename E>
-void Grid<T>::copyFrom(const Grid<E>& src)
+template<typename T, typename Container>
+void Grid<T, Container>::copyFrom(const Grid<T, Container>& src)
 {
 	int i,j;
-	mWidth=src.getWidth();
-	mHeight=src.getHeight();
+	mWidth=src.mWidth;
+	mHeight=src.mHeight;
 	// allocat enew 
-	mCells = new T*[mWidth];
+	mCells = new Container[mWidth];
 	for (i=0; i<mWidth; i++){
-		mCells [i]=new T[mHeight];
+		mCells[i].resize(mHeight);
 	}
 	// copy data 
 	for (i=0; i<mWidth; i++){
 		for (j=0; j<mHeight; j++){
-		mCells [i][j]=src.getElementAt(i,j);			
+			mCells[i][j]=src.mCells[i][j];
 		}
 	}
-	
 }
-template<typename T>
-void Grid<T>::setElementAt(int x, int y, const T& inElemen){
+
+// copy constructor
+	//Grid(const Grid<T>& src);
+template<typename T, typename Container>
+Grid<T, Container>::Grid(const Grid<T, Container>& src){
+	copyFrom(src);
+}
+
+// assignemnt
+template<typename T, typename Container>
+Grid<T, Container>& Grid<T, Container>::operator=(const Grid<T, Container>& rhs){
+	// check for self assignment 
+	if(this==&rhs){
+		return (*this);
+	}
+	// delete old memory 
+	delete [] mCells;
+	
+	// copy from 
+	copyFrom(rhs);
+	
+	return (*this);
+}
+
+
+template<typename T, typename Container>
+void Grid<T, Container>::setElementAt(int x, int y, const T& inElemen){
 		// check borders
-		mCells [x][y]=inElemen;
+		mCells[x][y]=inElemen;
 	}
 ////
-template<typename T>
-T& Grid<T>::getElementAt(int x, int y){
+template<typename T, typename Container>
+T& Grid<T, Container>::getElementAt(int x, int y){
 	//check biorders
-	return(mCells [x][y]);	
+	return(mCells[x][y]);	
 }
+
+template<typename T, typename Container>
+const T& Grid<T, Container>::getElementAt(int x, int y) const {
+	//check biorders
+	return(mCells[x][y]);	
+}
+
