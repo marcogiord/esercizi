@@ -1,6 +1,6 @@
 //Grid.h
 
-#ifndef DEFINES_GRDIH
+#ifndef DEFINES_GRIDH
 #define DEFINES_GRIDH
 
 template <typename T>
@@ -121,5 +121,6 @@ T& Grid<T>::getElementAt(int x, int y)
 	return(mCells[x][y]);
 }
 
+//#include "GridChar.h"
  
 #endif
