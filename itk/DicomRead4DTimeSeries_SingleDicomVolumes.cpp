@@ -1,6 +1,6 @@
 
-// Testing routing to read a 4D CT dataset 
-// must turn this in a example to read single volumes 
+// Testing routine to read a 4D CT dataset 
+// M. Giordano, TuDelft, 23.6.2016 
 
 #include "itkImage.h"
 #include "itkGDCMImageIO.h"
