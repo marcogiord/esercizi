@@ -1,5 +1,6 @@
 //#GridDefinitions.h
 #include "iostream"
+
 template<typename T>
 const int Grid<T>::kDefaultHeight;
 
@@ -24,15 +25,13 @@ Grid<T>::~Grid(){
 // copy constructor
 	//Grid(const Grid<T>& src);
 template<typename T>
-template<typename E>
-Grid<T>::Grid(const Grid<E>& src){
+Grid<T>::Grid(const Grid<T>& src){
 	copyFrom(src);
 }
 
 // assignemnt
 template<typename T>
-template<typename E>
-Grid<T>& Grid<T>::operator=(const Grid<E>& rhs){
+Grid<T>& Grid<T>::operator=(const Grid<T>& rhs){
 	if(this==&rhs){
 		return (*this);
 	}
@@ -47,8 +46,7 @@ Grid<T>& Grid<T>::operator=(const Grid<E>& rhs){
 }
 
 template<typename T>
-template<typename E>
-void Grid<T>::copyFrom(const Grid<E>& src)
+void Grid<T>::copyFrom(const Grid<T>& src) 
 {
 	int i,j;
 	mWidth=src.getWidth();
@@ -61,7 +59,7 @@ void Grid<T>::copyFrom(const Grid<E>& src)
 	// copy data 
 	for (i=0; i<mWidth; i++){
 		for (j=0; j<mHeight; j++){
-		mCells [i][j]=src.getElementAt(i,j);			
+		mCells[i][j]=src.getElementAt(i,j);			
 		}
 	}
 	
@@ -75,5 +73,5 @@ void Grid<T>::setElementAt(int x, int y, const T& inElemen){
 template<typename T>
 T& Grid<T>::getElementAt(int x, int y){
 	//check biorders
-	return(mCells [x][y]);	
-}
+	return(mCells[x][y]);
+	}

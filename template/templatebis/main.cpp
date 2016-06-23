@@ -12,6 +12,6 @@ int main(int argc, char **argv){
 	// use copy constructor 
 	Grid<int> myNewGrid2(myNewGrid);
 	testNewGrid=myNewGrid2;
-	std::cout<< " element is " << testNewGrid.tElementAt << std::endl;
+	std::cout<< " element is " << testNewGrid.getElementAt(0,0) << std::endl;
 	
 }

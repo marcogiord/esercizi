@@ -1,6 +1,6 @@
 //Grid.h
 
-#ifndef DEFINES_GRDIH
+#ifndef DEFINES_GRIDH
 #define DEFINES_GRIDH
 
 template <typename T>

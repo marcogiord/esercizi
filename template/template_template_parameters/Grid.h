@@ -3,7 +3,8 @@
 #ifndef DEFINES_GRIDH
 #define DEFINES_GRIDH
 
-template <typename T, typename Container>
+template <typename T, template <typename E, typename Allocator = allocator <E> >
+   class Container = vector >
 class Grid {
   public:
 	// constructors 
@@ -29,7 +30,7 @@ class Grid {
   
   protected:
     void copyFrom(const Grid<T, Container>& src);
-  	Container* mCells;
+  	Container<T>* mCells;
     int mWidth, mHeight;
 };
 #endif 
