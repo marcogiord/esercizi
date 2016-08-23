@@ -3,7 +3,16 @@
 #include <string>
 //namespace std ;
 
-
+// use of references 
+void swap (int& first, int& second){
+	int temp = first;
+	first = second ; 
+	second = temp;
+}
+//void separateOdddsAndEvens(const int arr[], int size, int*& odds, int& numOdds,int*& evens, int& numEvens);
+void separateOdddsAndEvens(const int myarr[], int mysize, int*& myodds, int& mynumOdds,	int*& myevens, int& mynumEvens){
+	
+}
 
 int main (int argc, char ** argv)
 {
@@ -57,12 +66,36 @@ int main (int argc, char ** argv)
 	std::cout << "xref:  " << xref << std::endl;
 	std::cout << "xPtr:  " << *xPtr << std::endl;
 	
+	// call swap function 
+	std::cout << std::endl << std::endl;
+    std::cout << "Swap function   " << std::endl;
+	int xc=5,yc=6;
+	std::cout << "xc and yc before swap:" << xc << " "<< yc << std::endl;
+	swap(xc,yc);
+	std::cout << "xc and yc after swap:" << xc << " "<< yc << std::endl;
+	//swap(3,4); does not compile
+	// reference from pointers 
+	
+	int xd=8, yd=9;
+	int *xdp=&xd, *ydp=&yd;
+	swap(*xdp,*ydp);
+	std::cout << "*xdp and *ydp after swap:" << *xdp << " "<< *ydp << std::endl;
 	
 	
+	// call the function
+	int unisplit[10] = {1,2,3,4,5,6,7,8,9,10};
+	int keepOdds=0, keepEven=0;
+	int *odds, *evens;
+	int numOdds, numEvens;
+	const int dsize=10; 
+	
+	separateOdddsAndEvens(unisplit,dsize,odds,numOdds,evens,numEvens);
+		
 	
 	return (0);
 
 }
+
 
 
 
