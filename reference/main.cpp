@@ -10,13 +10,35 @@ void swap (int& first, int& second){
 	second = temp;
 }
 //void separateOdddsAndEvens(const int arr[], int size, int*& odds, int& numOdds,int*& evens, int& numEvens);
-void separateOdddsAndEvens(const int myarr[], int mysize, int*& myodds, int& mynumOdds,	int*& myevens, int& mynumEvens){
+void separateOdddsAndEvens(const int myarr[], int mysize, int*& myodds, int& mynumOdds,	int*& myevens, int& mynumEvens);
+
+enum Color : unsigned int {YES=2,MAYBE=1,NO=0};
+
+/* bool Color::operator >(const Color &a, const Color &b){
 	
-}
+	if((a==YES)&(b==MAYBE)){
+		return true;
+	} else if((a==YES)&(b==NO)){
+		return true;
+	} else if ((a==MAYBE)&(b==NO)){
+		return true;
+	} else {
+		return false;
+	}
+}  */
+
 
 int main (int argc, char ** argv)
 {
 
+   const Color mycolor1 = YES;
+   const Color mycolor2 = MAYBE;
+   
+   if(mycolor1 > mycolor2){
+	   std::cout<<"bella zii is major "<<std::endl;
+   }
+   std::cout<<"bella zii"<<  2 * MAYBE << std::endl;
+   
 	int x =5;
 	//int& xref; // DONT COMPILE, MUST BE INIIALIZED
 	int& xref = x; //(the value of x and xref are the same )
@@ -84,18 +106,50 @@ int main (int argc, char ** argv)
 	
 	// call the function
 	int unisplit[10] = {1,2,3,4,5,6,7,8,9,10};
-	int keepOdds=0, keepEven=0;
 	int *odds, *evens;
 	int numOdds, numEvens;
 	const int dsize=10; 
 	
 	separateOdddsAndEvens(unisplit,dsize,odds,numOdds,evens,numEvens);
-		
+	std::cout << "Odds numbers "<< std::endl;
+	for (int r=0;r<numOdds;r++)
+		std::cout << odds[r] << std::endl;
+	
+	std::cout << "even numbers "<< std::endl;
+	for (int r=0;r<numEvens;r++)
+		std::cout << evens[r] << std::endl;
 	
 	return (0);
 
 }
 
 
-
+void separateOdddsAndEvens(const int myarr[], int mysize, int*& myodds, int& mynumOdds,	int*& myevens, int& mynumEvens){
+	
+	for (int i=0;i<mysize;i++){
+		if(myarr[i] % 2 == 0 ){
+			mynumEvens++;
+		}
+		else{
+			mynumOdds++;
+		}
+	}
+	//std::cout << "mynumEvens" << mynumEvens << " mynumOdds "<< mynumOdds << std::endl;
+	
+	//allocate memory for th eeven and odds 
+	myodds = new int[mynumOdds];
+	myevens= new int[mynumEvens];
+	// current position
+	int evensPos = 0, oddsPos = 0;
+	
+	for (int i=0;i<mysize;i++){
+		if(myarr[i] % 2 == 0 ){
+			myevens[evensPos++]=myarr[i];
+			}
+		else{
+			myodds[oddsPos++]=myarr[i];
+			}
+	}
+	
+}
 
