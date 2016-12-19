@@ -2,6 +2,7 @@
 #include <iterator>
 #include <fstream>
 #include <vector>
+#include <assert.h> 
 
 #ifndef _PIPS_H
 #define _PIPS_H
@@ -9,7 +10,27 @@
 
 using namespace std;
 
-enum class suit: short {SPADE,HEART,DIAMOND,CLUB};
+enum suit {SPADE,HEART,DIAMOND,CLUB};
+
+std::ostream& operator<<(std::ostream & os, const suit & s)
+{
+  switch (s) {
+  case SPADE:
+      os << "Spade";
+      break;
+  case HEART:
+      os << "Heart";
+      break;
+  case DIAMOND:
+      os << "Diamond";
+	  break;
+  case CLUB:
+      os << "Club"  ;
+	  break;
+  }
+  return os;
+}
+
 
 class pips{
 	public:
@@ -20,5 +41,11 @@ class pips{
 	private:
 		int v;
 };
+
+ostream& operator<<(ostream& out, const pips& p){
+	
+	out << p.v;
+	return out;
+}
 
  #endif

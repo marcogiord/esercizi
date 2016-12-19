@@ -17,6 +17,35 @@ void square (ForwardIterator first, ForwardIterator last)
 	for(; first!=last; first++)
 		*first = (*first) * (*first);
 }
+// function to look for least busy factory  
+
+void init_deck(vector <card> & d){
+	std::cout << "initializing vector "<< std::endl;
+	for(int i=1; i<14; ++i){
+		card c(suit::SPADE,i); 
+		d[i-1]=c;
+	}
+	for(int i=1; i<14; ++i){
+		card c(suit::HEART,i); 
+		d[i+12]=c;
+	}
+	for(int i=1; i<14; ++i){
+		card c(suit::DIAMOND,i); 
+		d[i+25]=c;
+	}
+	for(int i=1; i<14; ++i){
+		card c(suit::CLUB,i); 
+		d[i+38]=c;
+	}
+}
+
+void print(vector<card> & deck){
+	for (auto p=deck.begiin();p!=deck.end();++p){
+		cout<<*p;
+	}
+	
+	
+}
 
 
 int main(){
@@ -31,30 +60,15 @@ int main(){
     //std::cout << 'square the vector '<< std::endl;
 	
 	//square(w.begin(),w.end());
-	
+	 
 		
-	
+	std::cout << "creat epips  "<< std::endl;
+	 
+	pips myfirstpip(6);
 	std::cout << "creat vector "<< std::endl;
 	std::vector <card> mydeck(52);
-	
 	std::cout << "initialize  "<< std::endl;
 	init_deck(mydeck);
-	
-	std::cout << "elements in deck  "<< mydeck[0]<< endl;
-	
-	print(mydeck);
-	
-	std::vector <card> myhand(5);
-	
-	card c(SPADE,2);
-	myhand[0]=c;
-    myhand[1]=c;
-	myhand[2]=c;
-	myhand[3]=c;
-	myhand[4]=c;
-	
-	
-	bool checkflush=is_flush(myhand);
-	cout<< "is flush "<< checkflush << endl;
+	std::cout << "elements "<< mydeck[0].get_pips() << endl;
 	
 }
