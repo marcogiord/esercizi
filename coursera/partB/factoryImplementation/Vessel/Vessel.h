@@ -6,28 +6,29 @@
 #define _VESSEL_H
 using namespace std;
 
+enum vType{RCA,LCX,LAD};
+
 class Vessel {
 	public:
-		Vessel(int _number, std::string _type)
-		: vesselNumber(_number), vesselType(_type)
-	{
-	
-	}
-		~Vessel();
-		void info{std::cout<< "This is a vessel"<<std::endl;}
+		Vessel(int _number, VesType _type)
+		: vesselNumber(_number), vesselType(_type){};
 		
-		void set_vesselNumber(const int number);
-		void set_vesselType(const string& type);
-		const int get_vesselNumber();
+		~Vessel();
+		
+		virtual void info();
+		//{std::cout<< "This is a vessel"<<std::endl;}
+		
+		virtual void set_vesselNumber(const int number);
+		virtual void set_vesselType(const string& type);
+		
+		const int get_vesselNumber(return );
 		const std::string get_vesselType();
 		
-		//void set_patientID(const int id);
-		//%void set_connection(int start_seed, int end_seed);
-		Vessel* createVessel(){
+		virtual Vessel* createVessel(){
         return new Vessel(*this);}
 	private:
 	    int vesselNumber
-		std::string vesselType;
+		vType _vesselType;
 		//string patientID;
 		//vector <int> connection;		
 };

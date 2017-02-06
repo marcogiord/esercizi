@@ -7,6 +7,7 @@ CarFactory::CarFactory() : mNumCarsInProduction(0) {}
 Car* CarFactory::requestCar(){
 	mNumCarsInProduction++;
 	return createCar();
+	// here you have to select what object will be created 
 }
 
 int CarFactory::getNumCarsInProduction() const

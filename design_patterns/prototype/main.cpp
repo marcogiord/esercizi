@@ -3,12 +3,15 @@
  * RecordFactory is the client
  */
  
+ typedef map<RECORD_TYPE_en, Record* > RecordMap;
+ 
 class RecordFactory
 {
-  private :
-    map<RECORD_TYPE_en, Record* > m_oMapRecordReference;
-
   public :
+     RecordMap m_oMapRecordReference;
+    //map<RECORD_TYPE_en, Record* > m_oMapRecordReference;
+
+  
     RecordFactory()
     {
       m_oMapRecordReference[CAR]    = new CarRecord("Ferrari", 5050);
@@ -33,6 +36,16 @@ int main()
 {
   RecordFactory* poRecordFactory = new RecordFactory();
 
+  
+  Record* myrec = new CarRecord("Ferrari", 5678);
+  CarRecord mysecrec("Ferrari", 5656);
+  
+  myrec->Print();
+  mysecrec.Print();
+  
+  //RecordMap::iterator it=poRecordFactory->m_oMapRecordReference[CAR]->begin();
+  // how you interate over the map ?
+  
   /*Record* poRecord;
   poRecord = poRecordFactory->CreateRecord(CAR);
   poRecord->Print();
