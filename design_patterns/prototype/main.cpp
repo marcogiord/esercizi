@@ -3,14 +3,16 @@
  * RecordFactory is the client
  */
  
- typedef map<RECORD_TYPE_en, Record* > RecordMap;
+ //typedef map<RECORD_TYPE_en, Record* > RecordMap;
  
 class RecordFactory
 {
   public :
-     RecordMap m_oMapRecordReference;
+     //RecordMap m_oMapRecordReference;
     //map<RECORD_TYPE_en, Record* > m_oMapRecordReference;
-
+    //map<RECORD_TYPE_en, Record* > m_oMapRecordReference::iterator it;
+    typedef map<RECORD_TYPE_en, Record* > RecordMapType;
+    RecordMapType m_oMapRecordReference;
   
     RecordFactory()
     {
@@ -30,23 +32,23 @@ class RecordFactory
     {
       return m_oMapRecordReference[enType]->Clone();
     }
+	
+	void ShowAllRecords(){
+		for(RecordMapType::iterator it = m_oMapRecordReference.begin(); it != m_oMapRecordReference.end(); it++) {
+			(this->CreateRecord(it->first))->Print();
+		//RecordFactory*-> CreateRecord(entype)// this is Record*
+		// this is a pointer to Record that invikes Print than iit gets called the implementation in the subclass 
+		}
+		
+	}
 };
   
 int main()
 {
   RecordFactory* poRecordFactory = new RecordFactory();
-
-  
-  Record* myrec = new CarRecord("Ferrari", 5678);
-  CarRecord mysecrec("Ferrari", 5656);
-  
-  myrec->Print();
-  mysecrec.Print();
-  
-  //RecordMap::iterator it=poRecordFactory->m_oMapRecordReference[CAR]->begin();
-  // how you interate over the map ?
-  
-  /*Record* poRecord;
+  poRecordFactory->ShowAllRecords();
+    
+  Record* poRecord;
   poRecord = poRecordFactory->CreateRecord(CAR);
   poRecord->Print();
   delete poRecord;
@@ -57,7 +59,7 @@ int main()
     
   poRecord = poRecordFactory->CreateRecord(PERSON);
   poRecord->Print();
-  delete poRecord;*/
+  delete poRecord;
   
   delete poRecordFactory;
   return 0;

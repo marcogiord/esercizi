@@ -1,6 +1,7 @@
 //Creator.h
 
-# include <iostream>
+#include <iostream>
+#include <map>
 
 #ifndef _VESSEL_H
 #define _VESSEL_H
@@ -9,38 +10,47 @@ using namespace std;
 
 enum vType{RCA,LCX,LAD};
 
+class Meas{
+	public:
+	    Meas(){}
+		double gethpv() const{return(this->_hpv);};
+		void sethpv(double chpv){this->_hpv=chpv;};
+	private:
+		double _hpv;
+};
+
+
 class Vessel{
 	public:
-		Vessel(int id):_id(id){};
+		Vessel() {};
 		~Vessel() {};
 		virtual void info()=0;
-		int getVesselID() const{return(_id);};
-	protected:
-		int _id;
+		
 };
 
 // ypu mudst move all the characteristics to the parent class and leave in the child only the information on the segments 
 
-class LCXVessel: public Vessel{
+class VesselImpl: public Vessel{
 	public:	
-		LCXVessel(int id, vType ctype, int segmentID): Vessel(id), _type(ctype), _segmentID(segmentID) {
-			<< "Vessel ID  : " << _id << endl
-			<< "Segment ID    : " << _segmentID << endl
-			<< " type : " << _type << endl << endl;
+		VesselImpl(int id, vType ctype): Vessel(), _id(id), _type(ctype) {
+			this->info();
+			
 		}; // constructor
-		
-		//Vessel* Create(){return new Vessel(*this);
-		 //                 };
-		//
+				
 		void info(){
-			cout<<"Vessel Object " << endl
-				<< "Vessel ID  : " << this->getVesselID() << endl
-				<< "Segment ID    : " << this->_segmentID << endl << endl;
-		}	
+			cout<<"Vessel type " << this->_type << endl
+				<<"Vessel ID  : " << this-> getID() << endl;
+				};
+				
+		int getID() const{return(_id);};
+		
 	private:
-		int _segmentID;
+		int _id;
+		std::map<int, Meas* > _vMap;
 		vType _type;
 };
+
+// this is subooptiimal because the code is repeated, maybe increase the levels of abstraction.
 #endif
 
 
