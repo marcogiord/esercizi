@@ -15,8 +15,8 @@ using namespace std;
 class B{
 	public:
 		int i;
-		//virtual void print_i() const { cout << i << " inside B " << endl; }
-		virtual void print_i() const = 0;
+		virtual void print_i() const { cout << i << " inside B " << endl; }
+		//virtual void print_i() const = 0;
 };
 
 class D: public B{
@@ -58,7 +58,7 @@ int main(){
 	
 	/// virtual esercize 
 	D myderived;
-	//B base;
+	B base;
 	B* ptr;
 	D* ptrder;
 	
