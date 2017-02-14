@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 # include "Vessel.h"
 
 #ifndef _VESSELFACTORY_H
@@ -11,24 +12,29 @@ using namespace std;
 
 class VesselFactory{
 	public:
-		VesselFactory(const std::string name) : mNumVesselsPresent(0), _nameVesselFactory(name){};
-		Vessel* requestVessel(vType ctype, int ID);
-		int getNumVesselPresent() const;
+		VesselFactory(const std::string name) : mNumCases(0), _nameVesselFactory(name){};
+		void requestVesselCase(int ID);
+		int getNumCases() const;
 		std::string getnameVesselFactory() const;
+		
+		Vessel* getVesselCase(const& ID) const;
+		void getinfoAllVessels() const;
+		
 	protected:
-		Vessel* createVessel(vType ctype, int ID);// thiis method is not virtual it can be instatiated 
+		Vessel* createVesselCase(int ID);// thiis method is not virtual it can be instatiated 
 	private:
-		int mNumVesselsPresent;
+		int mNumCases;
 		std::string _nameVesselFactory;
+		vector<Vessel*> vesvector;
 };
 
-Vessel* VesselFactory::requestVessel(vType ctype, int ID){
+void VesselFactory::requestVesselCase(int ID){
 	std::cout<< "The VesselFactory <"<< getnameVesselFactory() << 
-	"> has requested a vessel of type "<< ctype << "currently this factory has nr vessels: "<<  
-	mNumVesselsPresent<<std::endl;
-	
-	mNumVesselsPresent++;
-	return createVessel(ctype, ID);
+	"> has requested a vessel case  "<< ID << "currently this factory has nr vessels: "<<  
+	mNumCases<<std::endl;	
+	mNumCases++;
+	//return createVessel(ctype, ID );
+	vesvector.push_back(createVesselCase(ID));
 }
 
 std::string VesselFactory::getnameVesselFactory() const{
@@ -36,16 +42,25 @@ std::string VesselFactory::getnameVesselFactory() const{
 }
 
 
-int VesselFactory::getNumVesselPresent() const{
-	return(mNumVesselsPresent);
+int VesselFactory::getNumCases() const{
+	return(mNumCases);
 }
 
 
-Vessel* VesselFactory::createVessel(vType ctype, int segmentID)
+Vessel* VesselFactory::createVesselCase(int segmentID)
 {
 	std::cout<< "Creation of a vessel   "<<std::endl;
-	return new VesselImpl(segmentID,ctype);
+	return new VesselCase(segmentID);
 }
+
+void VesselFactory::getinfoAllVessels() const{
+	std::cout<< "#####################################"<< std::endl;
+	std::cout<< "This VesselFactory <"<< getnameVesselFactory() << 
+	" has the following vessels  "<< std::endl;	
+	for (auto i: vesvector){ 
+		i->info();
+	}
+};
 
 #endif
 

@@ -12,7 +12,7 @@ enum vType{RCA,LCX,LAD};
 
 class Meas{
 	public:
-	    Meas(){}
+	    Meas(){};
 		double gethpv() const{return(this->_hpv);};
 		void sethpv(double chpv){this->_hpv=chpv;};
 	private:
@@ -22,6 +22,10 @@ class Meas{
 
 class Vessel{
 	public:
+		typedef std::map<vType, Meas* > VesselMapType;
+		typedef std::map<vType, Meas* >::iterator VesselMapIter;
+		typedef std::pair<vType, Meas* > VesselMapElement;
+	public:
 		Vessel() {};
 		~Vessel() {};
 		virtual void info()=0;
@@ -30,7 +34,32 @@ class Vessel{
 
 // ypu mudst move all the characteristics to the parent class and leave in the child only the information on the segments 
 
-class VesselImpl: public Vessel{
+// CREATE A VESSEL CASE WITH A MAP 
+class VesselCase: public Vessel{
+	public:	
+		VesselCase(int id): Vessel(), _id(id) {
+			this->info();
+		}; // constructor
+		
+	void info(){
+			cout<<"Vessel ID" << this-> getID() << endl;
+				};
+				
+	int getID() const{return(_id);};
+	
+	void addVesselToCase(vType ctype, Meas *measurement){
+		//_vMap[ctype]=measurement;		
+		_vMap.insert(VesselMapElement(ctype,measurement));
+	};
+	
+	
+	private:
+		int _id;
+		//std::map<vType, Meas* > _vMap;
+		VesselMapType _vMap;
+};
+
+/*class VesselImpl: public Vessel{
 	public:	
 		VesselImpl(int id, vType ctype): Vessel(), _id(id), _type(ctype) {
 			this->info();
@@ -48,7 +77,7 @@ class VesselImpl: public Vessel{
 		int _id;
 		std::map<int, Meas* > _vMap;
 		vType _type;
-};
+};*/
 
 // this is subooptiimal because the code is repeated, maybe increase the levels of abstraction.
 #endif

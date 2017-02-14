@@ -13,33 +13,39 @@ int main()
   std::cout << __cplusplus << "\n";
 	
    	
-	std::vector<VesselFactory*> factories;
+	//std::vector<VesselFactory*> factories;
 	// create 4facories 
 	VesselFactory* factory1 = new VesselFactory("HPV experiment");	
 	VesselFactory* factory2 = new VesselFactory("HPV validatiton");
 	
-	factory1->requestVessel(LCX,8);
-	factory1->requestVessel(LCX,9);
-	factory2->requestVessel(LAD,3);
-	// how do i get a vessel 
-	std::vector<Vessel*> vesvector;
+	factory1->requestVesselCase(8); // by doing this only the number of vessels is increased but the vessel is not stored 
+	factory1->requestVesselCase(12);
+	factory1->requestVesselCase(13);
 	
-	vesvector.push_back(factory1->requestVessel(LCX,8));
-	std::cout<< "vessels present in production  "<<factory1->getNumVesselPresent()<<std::endl;
-	// get the info of al vessels 	
-	vesvector[0]->info();
 	
-	// order some cars (need a CAR as output ??)
-	//Vessel* tempvessel = 
-	//Vessel* tempvessel = factory1->requestVessel(LCX,8);
-	//delete  tempvessel;
+	factory2->requestVesselCase(7);
+	factory2->requestVesselCase(8);
 	
-	//Vessel* tempvessel = factory1->requestVessel(LCX,9);
-	//delete  tempvessel;
+	factory1->getinfoAllVessels();
+	factory2->getinfoAllVessels();
 	
-	//Vessel* tempvessel = factory2->requestVessel(LCX,3);
-	//tempvessel->info();
-	//delete  tempvessel;
+	// create a vecxtor of pointers to vessels  
+	//std::vector<Vessel*> vesvector;
+	
+	//vesvector.push_back(factory1->requestVessel(LCX,12));
+	//vesvector.push_back(factory1->requestVessel(LCX,13));
+	//vesvector.push_back(factory1->requestVessel(LAD,7));
+	
+	//std::cout<< "################### "<<factory1->getNumVesselPresent()<<std::endl;
+	//std::cout<< "##############################  "<<factory1->getNumVesselPresent()<<std::endl;
+	// get the info of al vessels 
+	//std::cout<< "Vessell factory  "<< factory1->getnameVesselFactory() << " with num vessels: " <<factory1->getNumVesselPresent()<<std::endl;
+	//std::cout << "content of each vessel  "<< std::endl;
+	//for (auto i: vesvector)
+	//	i->info();
+	
+	//vesvector[0]->info();
+	
 	
 	
 }  

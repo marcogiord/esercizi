@@ -42,28 +42,16 @@ class grad_student: public student{
 };
 
 void student::print() const{
-	
+	cout << " this is the print of student  " << endl;
 	cout << name << " , " << student_id << " , " << y << " , " << gpa << endl;
 } 
 
 void grad_student::print()const {
 	//student::
+	cout << " this is the print of grad student  " << endl;
 	student::print();
 	cout << dept << " , " << s << " , " << thesis << endl;
 }
-
-
-
-class B{
-	public:
-		int i;
-		virtual void print_i() const { cout << i << " inside B " << endl; }
-};
-
-class D: public B{
-	public:
-		void print_i() const { cout << i << " inside D " << endl; }
-};
 	
 
 #endif
