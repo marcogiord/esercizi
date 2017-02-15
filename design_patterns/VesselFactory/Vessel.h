@@ -12,7 +12,7 @@ enum vType{RCA,LCX,LAD};
 
 class Meas{
 	public:
-	    Meas(){};
+	    Meas(double hpv):_hpv(hpv){};
 		double gethpv() const{return(this->_hpv);};
 		void sethpv(double chpv){this->_hpv=chpv;};
 	private:
@@ -29,7 +29,8 @@ class Vessel{
 		Vessel() {};
 		~Vessel() {};
 		virtual void info()=0;
-		
+		virtual int getID() const{};
+		virtual void addVesselToCase(vType ctype, Meas *measurement){};
 };
 
 // ypu mudst move all the characteristics to the parent class and leave in the child only the information on the segments 
@@ -37,25 +38,24 @@ class Vessel{
 // CREATE A VESSEL CASE WITH A MAP 
 class VesselCase: public Vessel{
 	public:	
+	// constructor
 		VesselCase(int id): Vessel(), _id(id) {
 			this->info();
-		}; // constructor
+		}; 
 		
 	void info(){
-			cout<<"Vessel ID" << this-> getID() << endl;
-				};
+			cout<<"Info: Vessel ID " << this-> getID() << endl;
+			};
 				
 	int getID() const{return(_id);};
 	
 	void addVesselToCase(vType ctype, Meas *measurement){
-		//_vMap[ctype]=measurement;		
+		cout<<" insering vessel of type  "<< ctype <<  endl;
 		_vMap.insert(VesselMapElement(ctype,measurement));
 	};
-	
-	
+		
 	private:
 		int _id;
-		//std::map<vType, Meas* > _vMap;
 		VesselMapType _vMap;
 };
 
@@ -84,63 +84,3 @@ class VesselCase: public Vessel{
 
 
 
-
-
-
-/*class VesselFactory {
-	public:
-		VesselFactory();
-		Vessel* requestVessel();
-		int getNumVessels() const;
-	protected:
-		virtual Vessel* createVessel() ;   // 
-	private:
-		
-};*/
-
-// should i implement the sub factories... not needed if the creator is not virtual 
-
-/*class Vessel {
-	public:
-		Vessel(int _number, VesType _type)
-		: vesselNumber(_number), vesselType(_type){};
-		
-		~Vessel();
-		
-		virtual void info();
-		//{std::cout<< "This is a vessel"<<std::endl;}
-		
-		virtual void set_vesselNumber(const int number);
-		virtual void set_vesselType(const string& type);
-		
-		const int get_vesselNumber(return );
-		const std::string get_vesselType();
-		
-		virtual Vessel* createVessel(){
-        return new Vessel(*this);}
-	private:
-	    int vesselNumber
-		vType _vesselType;
-		//string patientID;
-		//vector <int> connection;		
-};*/
-
-
-
-/* class LAD : public Vessel {
-	
-	public:
-		//virtual 
-		void info(){ {std::cout<< "LAD"<<std::endl;}};
-	
-	 
-};
-
-class LCX : public Vessel {
-	
-	public:
-		//virtual 
-		void info(){ {std::cout<< "LCX"<<std::endl;}};
-	
-	 
-}; */

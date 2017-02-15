@@ -12,12 +12,19 @@ using namespace std;
 
 class VesselFactory{
 	public:
+		// constructor 
 		VesselFactory(const std::string name) : mNumCases(0), _nameVesselFactory(name){};
-		void requestVesselCase(int ID);
-		int getNumCases() const;
-		std::string getnameVesselFactory() const;
 		
-		Vessel* getVesselCase(const& ID) const;
+		int getNumCases() const{
+			return(mNumCases);};
+		
+		std::string getnameVesselFactory() const{
+			return(_nameVesselFactory);};
+			
+		void requestVesselCase(int ID);
+						
+		Vessel* getVesselCase(const int& ID) const;
+		
 		void getinfoAllVessels() const;
 		
 	protected:
@@ -37,18 +44,8 @@ void VesselFactory::requestVesselCase(int ID){
 	vesvector.push_back(createVesselCase(ID));
 }
 
-std::string VesselFactory::getnameVesselFactory() const{
-	return(_nameVesselFactory);	
-}
 
-
-int VesselFactory::getNumCases() const{
-	return(mNumCases);
-}
-
-
-Vessel* VesselFactory::createVesselCase(int segmentID)
-{
+Vessel* VesselFactory::createVesselCase(int segmentID){
 	std::cout<< "Creation of a vessel   "<<std::endl;
 	return new VesselCase(segmentID);
 }
@@ -62,22 +59,20 @@ void VesselFactory::getinfoAllVessels() const{
 	}
 };
 
-#endif
 
-/*Vessel* VesselFactory::createVessel(vType ctype, int segmentID)
-{
-	if(ctype==LCX){
-		std::cout<< "Selected a LCX creation "<<std::endl;
-		return new LCXVessel(mNumVesselsPresent,ctype,segmentID);
+Vessel* VesselFactory::getVesselCase(const int& idcase) const{
+	std::cout<< "Se arching for vessel case "<< idcase << std::endl;
+	for (auto i: vesvector){ 
+		if(i->getID()==idcase){
+			std::cout<< "I found case : "<< idcase << std::endl;
+			i->info();
+			return(i);
+		}
 	}
-    else if(ctype==LAD) {
-		std::cout<< "Selected a LAD for creation "<<std::endl;
-		return new LADVessel(mNumVesselsPresent,ctype,segmentID);
-	} else {
-		std::cout<< "The requested vessel type was not found  "<<std::endl;
-		return(NULL);
-	}
-}*/
+	
+};
+
+#endif
 
 
 

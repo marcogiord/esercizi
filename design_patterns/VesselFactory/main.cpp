@@ -29,6 +29,13 @@ int main()
 	factory1->getinfoAllVessels();
 	factory2->getinfoAllVessels();
 	
+	Meas* mymeas= new Meas(32.1);
+	
+	
+	Vessel* myv= factory1->getVesselCase(8);
+	myv->addVesselToCase(LAD,mymeas);
+	
+	
 	// create a vecxtor of pointers to vessels  
 	//std::vector<Vessel*> vesvector;
 	
