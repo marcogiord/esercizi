@@ -11,7 +11,7 @@ module DirectDicomImport {
       window _default {
         geometry = "215 290 1573 531"
         sizeHint = "800 385"
-        wasOpen = yes
+        wasOpen = no
       }
       window VolumeDetails {
         geometry = "597 384 1108 372"
@@ -365,9 +365,9 @@ module View2D {
     moduleGroupName = Read-Series
     windows  {
       window _default {
-        geometry = "1219 274 400 400"
+        geometry = "837 183 400 400"
         sizeHint = "400 400"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
@@ -383,7 +383,7 @@ module View2D {
     slab = 1
     blendMode = BLEND_REPLACE
     timePoint = 0
-    maxTimePoint = 119
+    maxTimePoint = 0
     filterMode = FILTER_LINEAR
     standardKeys = TRUE
     cineMode = CINE_ZT
@@ -401,8 +401,8 @@ module View2D {
     sliceOrigin = "0 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 1981.78332519531
-    lutWidth = 2655.13305664062
+    lutCenter = 1
+    lutWidth = 1
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -427,9 +427,9 @@ module itkImageFileWriter {
     moduleGroupName = Read-Series
     windows  {
       window _default {
-        geometry = "752 520 838 403"
+        geometry = "1409 184 307 403"
         sizeHint = "256 403"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
@@ -439,8 +439,8 @@ module itkImageFileWriter {
     correctSubVoxelShift = FALSE
     forceDirectionCosineWrite = FALSE
     outputVoxelType = Automatic
-    info = "File saved successfully"
-    unresolvedFileName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_3.mhd
+    info = ""
+    unresolvedFileName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_18.mhd
   }
 }
 module SubImage {
@@ -449,9 +449,9 @@ module SubImage {
     moduleGroupName = Read-Series
     windows  {
       window _default {
-        geometry = "969 257 396 533"
+        geometry = "1204 234 396 533"
         sizeHint = "396 533"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
@@ -467,7 +467,7 @@ module SubImage {
     y = 0
     sy = -1
     modifyY = FALSE
-    z = 3
+    z = 18
     sz = 1
     modifyZ = TRUE
     c = 0
@@ -491,7 +491,7 @@ module InterleaveDimension {
     showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "889 542 157 56"
+        geometry = "1109 762 157 56"
         sizeHint = "157 56"
         wasOpen = no
       }
@@ -510,7 +510,7 @@ module ImagePropertyConvert {
     showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "839 423 482 631"
+        geometry = "612 93 326 631"
         sizeHint = "326 631"
         wasOpen = no
       }
@@ -522,12 +522,12 @@ module ImagePropertyConvert {
     cDimInfo = ""
     tDimInfo = ""
     uDimInfo = ""
-    a00 = 1.6000000238419
+    a00 = 1
     a01 = 0
     a02 = 0
     a03 = 0
     a10 = 0
-    a11 = 1.6000000238419
+    a11 = 1
     a12 = 0
     a13 = 0
     a20 = 0
@@ -538,8 +538,8 @@ module ImagePropertyConvert {
     a31 = 0
     a32 = 0
     a33 = 1
-    worldMatrix = "1.6000000238419 0 0 0
-0 1.6000000238419 0 0
+    worldMatrix = "1 0 0 0
+0 1 0 0
 0 0 1 0
 0 0 0 1"
     changeDatatype = FALSE
@@ -556,8 +556,8 @@ module ImagePropertyConvert {
     changeMaxGrayValue = FALSE
     maxGrayValue = 1
     changeWorldMatrix = TRUE
-    voxelSizeX = 1.6000000238419
-    voxelSizeY = 1.6000000238419
+    voxelSizeX = 0
+    voxelSizeY = 0
     voxelSizeZ = 1
     autoApply = TRUE
   }
@@ -586,7 +586,7 @@ module Counter {
     showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "329 545 579 259"
+        geometry = "1 54 654 326"
         sizeHint = "579 259"
         wasOpen = yes
       }
@@ -594,9 +594,9 @@ module Counter {
   }
   fields  {
     instanceName = Counter
-    currentValue = 3
+    currentValue = 18
     minValue = 0
-    maxValue = 16
+    maxValue = 25
     startValue = 0
     stepValue = 1
     loop = TRUE
@@ -623,7 +623,7 @@ module MakeName {
     extensions = "\\.[^.]*"
     extRegExp = TRUE
     outputTemplate = $n/4D_$T.mhd
-    outputName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_3.mhd
+    outputName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_18.mhd
     predefined = void
     dicomTagA = PatientsName
     dicomTagB = PatientID
@@ -638,7 +638,7 @@ module MakeName {
     dicomValueE = ""
     dicomValueF = ""
     userStringS = F:/projects/LKEB_contour_registration/data/AF_27_m_48
-    userStringT = 3
+    userStringT = 18
     trimSpaces = TRUE
   }
 }
@@ -648,9 +648,9 @@ module FileDirectory {
     moduleGroupName = Read-Series
     windows  {
       window _default {
-        geometry = "61 505 646 564"
+        geometry = "87 150 646 564"
         sizeHint = "495 564"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
@@ -676,9 +676,9 @@ module itkImageFileReader {
     moduleGroupName = Define-Contour
     windows  {
       window _default {
-        geometry = "1155 196 328 395"
+        geometry = "1442 267 328 395"
         sizeHint = "328 395"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
@@ -697,7 +697,7 @@ module itkImageFileReader {
     outputMetaDataStr = "ITK_InputFilterName : MetaImageIO
 "
     suppressErrorPosting = FALSE
-    unresolvedFileName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_3.mhd
+    unresolvedFileName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_18.mhd
   }
 }
 module View2D {
@@ -706,14 +706,14 @@ module View2D {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "1092 142 793 722"
+        geometry = "479 31 1150 683"
         sizeHint = "400 400"
         wasOpen = yes
       }
       window _automatic {
-        geometry = "717 270 500 600"
+        geometry = "124 150 573 600"
         sizeHint = "260 223"
-        wasOpen = no
+        wasOpen = yes
       }
     }
   }
@@ -722,7 +722,7 @@ module View2D {
     inventorInputOn = TRUE
     inventorOutputOn = FALSE
     view2DExtensionsOn = TRUE
-    startSlice = 0
+    startSlice = 60
     numSlices = 1
     numXSlices = 1
     sliceStep = 1
@@ -734,21 +734,21 @@ module View2D {
     standardKeys = TRUE
     cineMode = CINE_ZT
     cineDirection = CINE_FORWARD
-    cineRepeat = CINE_ONCE
-    cineSpeed = 0.1
+    cineRepeat = CINE_REPEAT
+    cineSpeed = 0.050000001
     cineAlwaysReset = TRUE
     snapToCenter = TRUE
     zoomMode = VIEW2D_AUTO_ZOOM
     unzoomOnImageChange = FALSE
-    sliceZoom = 1.3483809
-    sliceZoomSynced = 1.3483809
+    sliceZoom = 2.1312196
+    sliceZoomSynced = 2.1312196
     baseColor = "1 1 1"
     margin = "2 2"
-    sliceOrigin = "23.5110626220703 32.9535675048828"
+    sliceOrigin = "51.4628486633301 35.3518333435059"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 0.5
-    lutWidth = 1
+    lutCenter = 1719
+    lutWidth = 3120
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -790,9 +790,14 @@ module SoView2DMarkerEditor {
     moduleGroupName = Define-Contour
     windows  {
       window _default {
-        geometry = "227 174 603 583"
+        geometry = "1 174 603 583"
         sizeHint = "603 583"
         wasOpen = yes
+      }
+      window _automatic {
+        geometry = "717 270 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
       }
     }
   }
@@ -860,7 +865,7 @@ module SoView2DMarkerEditor {
     newCurrentTimePoint = 0
     depthVisibilityMode = DEPTH_IN_SLICES
     listString = ""
-    index = 0
+    index = 14
     persistent = FALSE
     listStringEnable = FALSE
     applySelect = FALSE
@@ -869,7 +874,7 @@ module SoView2DMarkerEditor {
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
-    posXYZ = "0 0 0"
+    posXYZ = "124.799995422363 89.5999984741211 37"
     posC = 0
     posT = 0
     posU = 0
@@ -889,7 +894,7 @@ module XMarkerListContainer {
     moduleGroupName = Define-Contour
     windows  {
       window _default {
-        geometry = "-590 380 513 497"
+        geometry = "1271 424 513 497"
         sizeHint = "500 497"
         wasOpen = no
       }
@@ -912,7 +917,7 @@ module XMarkerListContainer {
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
-    posXYZ = "0 0 0"
+    posXYZ = "121.599998474121 99.1999969482422 37"
     posC = 0
     posT = 0
     posU = 0
@@ -933,8 +938,8 @@ module RunPythonScript {
     showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "-1296 92 914 734"
-        sizeHint = "780 734"
+        geometry = "517 31 904 734"
+        sizeHint = "904 734"
         wasOpen = yes
       }
       window _automatic {
@@ -952,7 +957,7 @@ module RunPythonScript {
   fields  {
     instanceName = SaveContour
     in0 = XMarkerListContainer
-    in1 = F:/projects/LKEB_contour_registration/data/AF_27_m_48/slice3/end42.txt
+    in1 = F:/projects/LKEB_contour_registration/data/AF_27_m_48/slice18/end37.txt
     in2 = ""
     in3 = ""
     in4 = ""
@@ -973,7 +978,7 @@ module RunPythonScript {
     inComment9 = in9
     autoApply0 = FALSE
     autoApply1 = FALSE
-    autoApply2 = TRUE
+    autoApply2 = FALSE
     autoApply3 = TRUE
     autoApply4 = TRUE
     autoApply5 = TRUE
@@ -1019,6 +1024,8 @@ with open(in1, 'w') as output_file:
      output_file.write("{0} {1} {2}\\n".format(
 			*coordinates
 		))
+
+
 *"
     finalizeCode = ""
     showFields = TRUE
@@ -1026,7 +1033,7 @@ with open(in1, 'w') as output_file:
     showWakeUpCode = FALSE
     showCode = TRUE
     showFinalizeCode = FALSE
-    showConsole = FALSE
+    showConsole = TRUE
   }
 }
 module MakeName {
@@ -1047,7 +1054,7 @@ module MakeName {
     extensions = "\\.[^.]*"
     extRegExp = TRUE
     outputTemplate = $n/slice$T/end$S.txt
-    outputName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/slice3/end42.txt
+    outputName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/slice18/end37.txt
     predefined = void
     dicomTagA = PatientsName
     dicomTagB = PatientID
@@ -1061,8 +1068,8 @@ module MakeName {
     dicomValueD = ""
     dicomValueE = ""
     dicomValueF = ""
-    userStringS = 42
-    userStringT = 3
+    userStringS = 37
+    userStringT = 18
     trimSpaces = TRUE
   }
 }
@@ -1075,16 +1082,16 @@ module RunPythonScript {
       window _default {
         geometry = "-1211 83 1268 739"
         sizeHint = "904 734"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
   fields  {
     instanceName = RunPythonScript1
     in0 = XMarkerListContainer1
-    in1 = 0
+    in1 = 60
     in2 = CSOManager
-    in3 = 3
+    in3 = 18
     in4 = ""
     in5 = ""
     in6 = ""
@@ -1136,7 +1143,7 @@ CTX = ctx # ctx is the network's context, not RunPythonScript's"
     wakeUpCode = ""
     code = "*import re
 slice_nr = in3
-input_file="f:\\projects\\LKEB_contour_registration\\data\\AF_20_w_21\\slice"+str(slice_nr)+"\\pointendt{0}.txt".format(in1)
+input_file="f:\\projects\\LKEB_contour_registration\\data\\AF_27_m_48\\slice"+str(slice_nr)+"\\pointendt{0}.txt".format(in1)
 
 def output_markers(input_file):
   m = ctx.module(in0)
@@ -1207,7 +1214,7 @@ module XMarkerListContainer {
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
-    posXYZ = "104.331975 109.630092 0.5"
+    posXYZ = "118.966996 93.458103 60.5"
     posC = 0
     posT = 0
     posU = 0
@@ -1223,8 +1230,8 @@ module XMarkerListContainer {
 }
 module SoView2DMarkerEditor {
   internal  {
-    frame = "1693 149 168 56"
-    moduleGroupName = ""
+    frame = "1709 157 168 56"
+    moduleGroupName = Define-Contour
     windows  {
       window _default {
         geometry = "1129 619 603 583"
@@ -1639,7 +1646,7 @@ module View2D {
     moduleGroupName = Define-Contour
     windows  {
       window _default {
-        geometry = "1220 169 688 570"
+        geometry = "1352 243 400 400"
         sizeHint = "400 400"
         wasOpen = yes
       }
@@ -1655,7 +1662,7 @@ module View2D {
     inventorInputOn = TRUE
     inventorOutputOn = FALSE
     view2DExtensionsOn = TRUE
-    startSlice = 42
+    startSlice = 37
     numSlices = 1
     numXSlices = 1
     sliceStep = 1
@@ -1673,15 +1680,15 @@ module View2D {
     snapToCenter = TRUE
     zoomMode = VIEW2D_AUTO_ZOOM
     unzoomOnImageChange = FALSE
-    sliceZoom = 1.5609335
-    sliceZoomSynced = 1.5609335
+    sliceZoom = 1.9858388
+    sliceZoomSynced = 1.9858388
     baseColor = "1 1 1"
     margin = "2 2"
-    sliceOrigin = "28.7486190795898 28.7486190795898"
+    sliceOrigin = "45.668155670166 28.7604560852051"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 2088.45068359375
-    lutWidth = 4064.28735351562
+    lutCenter = 1719
+    lutWidth = 3120
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -1716,7 +1723,7 @@ module RunPythonScript {
   fields  {
     instanceName = CreateSliceFolders
     in0 = F:/projects/LKEB_contour_registration/data/AF_27_m_48
-    in1 = 28
+    in1 = 0
     in2 = ""
     in3 = ""
     in4 = ""
@@ -1794,7 +1801,7 @@ module itkImageFileReader {
       window _default {
         geometry = "989 438 328 395"
         sizeHint = "328 395"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
@@ -1804,18 +1811,16 @@ module itkImageFileReader {
     autoDetermineDataType = FALSE
     correctSubVoxelShift = TRUE
     fileDimension = 3
-    info = " Could not create IO object for file F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_3.mhd
-The file doesn't exist. 
-Filename = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_3.mhd
- Loaded data may be undefined."
-    numDims = 0
-    fileType = TypeNotApplicable
-    componentType = ""
-    pixelType = UNKNOWNPIXELTYPE
-    loaderType = ""
-    outputMetaDataStr = ""
+    info = "Loading okay."
+    numDims = 3
+    fileType = Binary
+    componentType = "unsigned int16"
+    pixelType = SCALAR
+    loaderType = MetaImageIO
+    outputMetaDataStr = "ITK_InputFilterName : MetaImageIO
+"
     suppressErrorPosting = FALSE
-    unresolvedFileName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_3.mhd
+    unresolvedFileName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_18.mhd
   }
 }
 connections  {
