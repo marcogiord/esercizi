@@ -4,18 +4,13 @@ network  {
 }
 module DirectDicomImport {
   internal  {
-    frame = "861 365 168 56"
-    moduleGroupName = Read-Series
+    frame = "581 517 168 56"
+    moduleGroupName = ""
     showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "215 290 1573 531"
+        geometry = "942 418 800 385"
         sizeHint = "800 385"
-        wasOpen = no
-      }
-      window VolumeDetails {
-        geometry = "597 384 1108 372"
-        sizeHint = "741 372"
         wasOpen = no
       }
     }
@@ -355,17 +350,17 @@ validImage hasIssues fileType voxelType imgExt numVoxels numSlices numTimePoints
     dplWorkaroundValueForImageOrientationPatientTag = ""
     composeOtherFilesMode = Single
     silentTrialFileTypes = ".dat .raw .txt"
-    source = F:/data/RealTimeMRI/Arrhythmia/EUROS/Af_27_M_48
+    source = C:/data/imported_20171017_091622/CVMR_10_P_MicroVascularObstruction/SE4
     guiCachePath = ""
   }
 }
 module View2D {
   internal  {
-    frame = "693 197 120 56"
-    moduleGroupName = Read-Series
+    frame = "485 13 120 56"
+    moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "837 183 400 400"
+        geometry = "18 506 400 393"
         sizeHint = "400 400"
         wasOpen = no
       }
@@ -376,7 +371,7 @@ module View2D {
     inventorInputOn = TRUE
     inventorOutputOn = FALSE
     view2DExtensionsOn = TRUE
-    startSlice = 0
+    startSlice = 12
     numSlices = 1
     numXSlices = 1
     sliceStep = 1
@@ -401,8 +396,8 @@ module View2D {
     sliceOrigin = "0 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 1
-    lutWidth = 1
+    lutCenter = 241.52522277832
+    lutWidth = 149.612518310547
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -421,77 +416,31 @@ module View2D {
     hiResRendering = TRUE
   }
 }
-module itkImageFileWriter {
+module Info {
   internal  {
-    frame = "913 -131 128 56"
-    moduleGroupName = Read-Series
+    frame = "333 225 120 80"
+    moduleGroupName = ""
+    showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "1409 184 307 403"
-        sizeHint = "256 403"
+        geometry = "201 579 569 375"
+        sizeHint = "569 375"
         wasOpen = no
       }
     }
   }
   fields  {
-    instanceName = itkImageFileWriter
-    useCompression = FALSE
-    correctSubVoxelShift = FALSE
-    forceDirectionCosineWrite = FALSE
-    outputVoxelType = Automatic
-    info = ""
-    unresolvedFileName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_18.mhd
-  }
-}
-module SubImage {
-  internal  {
-    frame = "901 245 88 56"
-    moduleGroupName = Read-Series
-    windows  {
-      window _default {
-        geometry = "1204 234 396 533"
-        sizeHint = "396 533"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = SubImage
-    boxInput = "0 0 0 0 0 0 -1 -1 -1 -1 -1 -1"
-    autoApplyBox = FALSE
-    correctForNegativeSubImageExtents = FALSE
-    enableBoxClamping = FALSE
-    x = 0
-    sx = -1
-    modifyX = FALSE
-    y = 0
-    sy = -1
-    modifyY = FALSE
-    z = 18
-    sz = 1
-    modifyZ = TRUE
-    c = 0
-    sc = -1
-    modifyC = FALSE
-    t = 0
-    st = -1
-    modifyT = FALSE
-    u = 0
-    su = -1
-    modifyU = FALSE
-    fillValue = 0
-    mode = VoxelStartSize
-    autoApply = TRUE
+    instanceName = Info
   }
 }
 module InterleaveDimension {
   internal  {
-    frame = "937 101 144 72"
-    moduleGroupName = Read-Series
+    frame = "601 325 144 72"
+    moduleGroupName = ""
     showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "1109 762 157 56"
+        geometry = "889 542 157 56"
         sizeHint = "157 56"
         wasOpen = no
       }
@@ -505,12 +454,12 @@ module InterleaveDimension {
 }
 module ImagePropertyConvert {
   internal  {
-    frame = "925 -35 152 72"
-    moduleGroupName = Read-Series
+    frame = "637 205 152 72"
+    moduleGroupName = ""
     showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "612 93 326 631"
+        geometry = "954 358 326 631"
         sizeHint = "326 631"
         wasOpen = no
       }
@@ -522,12 +471,12 @@ module ImagePropertyConvert {
     cDimInfo = ""
     tDimInfo = ""
     uDimInfo = ""
-    a00 = 1
+    a00 = 1.484375
     a01 = 0
     a02 = 0
     a03 = 0
     a10 = 0
-    a11 = 1
+    a11 = 1.484375
     a12 = 0
     a13 = 0
     a20 = 0
@@ -538,16 +487,16 @@ module ImagePropertyConvert {
     a31 = 0
     a32 = 0
     a33 = 1
-    worldMatrix = "1 0 0 0
-0 1 0 0
+    worldMatrix = "1.484375 0 0 0
+0 1.484375 0 0
 0 0 1 0
 0 0 0 1"
     changeDatatype = FALSE
     datatype = "unsigned int8"
-    changePageSize = FALSE
-    pageSizeX = 32
-    pageSizeY = 32
-    pageSizeZ = 1
+    changePageSize = TRUE
+    pageSizeX = 256
+    pageSizeY = 256
+    pageSizeZ = 25
     pageSizeC = 1
     pageSizeT = 1
     pageSizeU = 1
@@ -556,241 +505,41 @@ module ImagePropertyConvert {
     changeMaxGrayValue = FALSE
     maxGrayValue = 1
     changeWorldMatrix = TRUE
-    voxelSizeX = 0
-    voxelSizeY = 0
+    voxelSizeX = 1.484375
+    voxelSizeY = 1.484375
     voxelSizeZ = 1
     autoApply = TRUE
   }
 }
-module Info {
+module itkImageFileWriter {
   internal  {
-    frame = "749 -31 88 80"
-    moduleGroupName = Read-Series
-    showNetworkPanel = true
-    windows  {
-      window _default {
-        geometry = "911 352 569 375"
-        sizeHint = "569 375"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = Info
-  }
-}
-module Counter {
-  internal  {
-    frame = "1097 245 80 72"
-    moduleGroupName = ""
-    showNetworkPanel = true
-    windows  {
-      window _default {
-        geometry = "1 54 654 326"
-        sizeHint = "579 259"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = Counter
-    currentValue = 18
-    minValue = 0
-    maxValue = 25
-    startValue = 0
-    stepValue = 1
-    loop = TRUE
-    checkConsistency = TRUE
-    autoStepInterval_s = 1
-    stepDirection = Up
-  }
-}
-module MakeName {
-  internal  {
-    frame = "1185 -187 96 56"
+    frame = "681 29 128 56"
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "-808 223 596 445"
-        sizeHint = "457 445"
+        geometry = "982 607 307 403"
+        sizeHint = "256 403"
         wasOpen = no
       }
     }
   }
   fields  {
-    instanceName = MakeName
-    inputName = F:/projects/LKEB_contour_registration/data/AF_27_m_48
-    extensions = "\\.[^.]*"
-    extRegExp = TRUE
-    outputTemplate = $n/4D_$T.mhd
-    outputName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_18.mhd
-    predefined = void
-    dicomTagA = PatientsName
-    dicomTagB = PatientID
-    dicomTagC = InstitutionName
-    dicomTagD = Modality
-    dicomTagE = AcquisitionDate
-    dicomTagF = AcquisitionTime
-    dicomValueA = ""
-    dicomValueB = ""
-    dicomValueC = ""
-    dicomValueD = ""
-    dicomValueE = ""
-    dicomValueF = ""
-    userStringS = F:/projects/LKEB_contour_registration/data/AF_27_m_48
-    userStringT = 18
-    trimSpaces = TRUE
-  }
-}
-module FileDirectory {
-  internal  {
-    frame = "1069 -251 104 56"
-    moduleGroupName = Read-Series
-    windows  {
-      window _default {
-        geometry = "87 150 646 564"
-        sizeHint = "495 564"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = FileDirectory
-    rootPath = F:/projects/LKEB_contour_registration/data/AF_27_m_48
-    recursive = FALSE
-    maxRecursionDepth = -1
-    fileType = Files
-    joinImagePairs = FALSE
-    include = ""
-    includeRegExp = FALSE
-    predefined = void
-    exclude = ""
-    excludeRegExp = FALSE
-    ignoreCase = TRUE
-    dirMode = Absolute
-  }
-}
-module itkImageFileReader {
-  internal  {
-    frame = "1381 -171 136 56"
-    moduleGroupName = Define-Contour
-    windows  {
-      window _default {
-        geometry = "1442 267 328 395"
-        sizeHint = "328 395"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = itkImageFileReader
-    fileDataType = int16
-    autoDetermineDataType = FALSE
+    instanceName = itkImageFileWriter
+    useCompression = FALSE
     correctSubVoxelShift = TRUE
-    fileDimension = 3
-    info = "Loading okay."
-    numDims = 3
-    fileType = Binary
-    componentType = "unsigned int16"
-    pixelType = SCALAR
-    loaderType = MetaImageIO
-    outputMetaDataStr = "ITK_InputFilterName : MetaImageIO
-"
-    suppressErrorPosting = FALSE
-    unresolvedFileName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_18.mhd
-  }
-}
-module View2D {
-  internal  {
-    frame = "1701 -115 120 56"
-    moduleGroupName = ""
-    windows  {
-      window _default {
-        geometry = "479 31 1150 683"
-        sizeHint = "400 400"
-        wasOpen = no
-      }
-      window _automatic {
-        geometry = "124 150 573 600"
-        sizeHint = "260 223"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = View2D1
-    inventorInputOn = TRUE
-    inventorOutputOn = FALSE
-    view2DExtensionsOn = TRUE
-    startSlice = 60
-    numSlices = 1
-    numXSlices = 1
-    sliceStep = 1
-    slab = 1
-    blendMode = BLEND_REPLACE
-    timePoint = 0
-    maxTimePoint = 0
-    filterMode = FILTER_LINEAR
-    standardKeys = TRUE
-    cineMode = CINE_ZT
-    cineDirection = CINE_FORWARD
-    cineRepeat = CINE_REPEAT
-    cineSpeed = 0.050000001
-    cineAlwaysReset = TRUE
-    snapToCenter = TRUE
-    zoomMode = VIEW2D_AUTO_ZOOM
-    unzoomOnImageChange = FALSE
-    sliceZoom = 2.1312196
-    sliceZoomSynced = 2.1312196
-    baseColor = "1 1 1"
-    margin = "2 2"
-    sliceOrigin = "51.4628486633301 35.3518333435059"
-    useShaders = TRUE
-    useManagedInteraction = FALSE
-    lutCenter = 1560
-    lutWidth = 3120
-    annotationOn = TRUE
-    annotationMode = ANNO_MODE_AUTO
-    annotationSizeMode = ANNO_SHOW_DETAILED
-    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
-    annotationFontSize = ANNO_SIZE_AUTO
-    annoCoords = Voxel
-    annoCTValue = AsIs
-    borderOn = FALSE
-    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
-    valueHighPrecision = TRUE
-    showColorChannelValues = FALSE
-    colorChannelSeparator = " / "
-    maxPrecision = 4
-    enableSlicing = TRUE
-    useRelativeLUTIfNoInputImage = TRUE
-    hiResRendering = TRUE
-  }
-}
-module Info {
-  internal  {
-    frame = "757 -151 88 80"
-    moduleGroupName = Read-Series
-    showNetworkPanel = true
-    windows  {
-      window _default {
-        geometry = "1012 129 573 375"
-        sizeHint = "573 375"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = Info1
+    forceDirectionCosineWrite = FALSE
+    outputVoxelType = Automatic
+    info = "File saved successfully"
+    unresolvedFileName = F:/projects/2DValveTracking/testDataset2Ch.mhd
   }
 }
 module SoView2DMarkerEditor {
   internal  {
-    frame = "1401 13 160 56"
-    moduleGroupName = Define-Contour
+    frame = "1129 397 160 56"
+    moduleGroupName = "Save valve Position"
     windows  {
       window _default {
-        geometry = "1 174 603 583"
+        geometry = "-18 174 603 583"
         sizeHint = "603 583"
         wasOpen = no
       }
@@ -865,7 +614,7 @@ module SoView2DMarkerEditor {
     newCurrentTimePoint = 0
     depthVisibilityMode = DEPTH_IN_SLICES
     listString = ""
-    index = 0
+    index = 2
     persistent = FALSE
     listStringEnable = FALSE
     applySelect = FALSE
@@ -874,7 +623,7 @@ module SoView2DMarkerEditor {
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
-    posXYZ = "0 0 0"
+    posXYZ = "208.5546875 58.6328125 3.5"
     posC = 0
     posT = 0
     posU = 0
@@ -890,11 +639,11 @@ module SoView2DMarkerEditor {
 }
 module XMarkerListContainer {
   internal  {
-    frame = "1413 101 152 56"
-    moduleGroupName = Define-Contour
+    frame = "1085 501 152 56"
+    moduleGroupName = "Save valve Position"
     windows  {
       window _default {
-        geometry = "1271 424 513 497"
+        geometry = "115 212 513 497"
         sizeHint = "500 497"
         wasOpen = no
       }
@@ -917,7 +666,7 @@ module XMarkerListContainer {
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
-    posXYZ = "0 0 0"
+    posXYZ = "159.5703125 183.3203125 7.5"
     posC = 0
     posT = 0
     posU = 0
@@ -933,12 +682,12 @@ module XMarkerListContainer {
 }
 module RunPythonScript {
   internal  {
-    frame = "1441 -87 160 64"
-    moduleGroupName = Define-Contour
+    frame = "1169 297 160 64"
+    moduleGroupName = "Save valve Position"
     showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "517 31 904 734"
+        geometry = "703 373 904 734"
         sizeHint = "904 734"
         wasOpen = no
       }
@@ -957,8 +706,8 @@ module RunPythonScript {
   fields  {
     instanceName = SaveContour
     in0 = XMarkerListContainer
-    in1 = F:/projects/LKEB_contour_registration/data/AF_27_m_48/slice18/end60.txt
-    in2 = ""
+    in1 = F:/projects/2DValveTracking/result/valve16.txt
+    in2 = 16
     in3 = ""
     in4 = ""
     in5 = ""
@@ -1020,7 +769,7 @@ with open(in1, 'w') as output_file:
   output_file.write('{0}\\n'.format(len(all_markers)))
   for m in all_markers:
      coordinates = list(m.pos)
-     coordinates[2] = m.pos[2] + 0.5
+     coordinates[2] = m.pos[2] 
      output_file.write("{0} {1} {2}\\n".format(
 			*coordinates
 		))
@@ -1036,25 +785,134 @@ with open(in1, 'w') as output_file:
     showConsole = TRUE
   }
 }
-module MakeName {
+module itkImageFileReader {
   internal  {
-    frame = "1173 -27 104 56"
-    moduleGroupName = ""
+    frame = "897 181 144 56"
+    moduleGroupName = "Save valve Position"
     windows  {
       window _default {
-        geometry = "-875 333 741 445"
+        geometry = "1534 165 328 395"
+        sizeHint = "328 395"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = itkImageFileReader1
+    fileDataType = "unsigned int16"
+    autoDetermineDataType = TRUE
+    correctSubVoxelShift = TRUE
+    fileDimension = 3
+    info = "Loading okay."
+    numDims = 3
+    fileType = Binary
+    componentType = "unsigned int16"
+    pixelType = SCALAR
+    loaderType = MetaImageIO
+    outputMetaDataStr = "ITK_InputFilterName : MetaImageIO
+"
+    suppressErrorPosting = FALSE
+    unresolvedFileName = F:/projects/2DValveTracking/testDataset2Ch.mhd
+  }
+}
+module Info {
+  internal  {
+    frame = "313 29 64 72"
+    moduleGroupName = ""
+    showNetworkPanel = true
+    windows  {
+      window _default {
+        geometry = "1008 406 569 375"
+        sizeHint = "569 375"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Info1
+  }
+}
+module View2D {
+  internal  {
+    frame = "1077 5 120 56"
+    moduleGroupName = "Save valve Position"
+    windows  {
+      window _default {
+        geometry = "-1092 213 638 675"
+        sizeHint = "400 400"
+        wasOpen = yes
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D1
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 16
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_ZT
+    cineDirection = CINE_FORWARD
+    cineRepeat = CINE_REPEAT
+    cineSpeed = 0.1
+    cineAlwaysReset = TRUE
+    snapToCenter = TRUE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 322.5
+    lutWidth = 645
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    showColorChannelValues = FALSE
+    colorChannelSeparator = " / "
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = TRUE
+    hiResRendering = TRUE
+  }
+}
+module MakeName {
+  internal  {
+    frame = "913 333 96 56"
+    moduleGroupName = "Save valve Position"
+    windows  {
+      window _default {
+        geometry = "324 461 499 445"
         sizeHint = "457 445"
         wasOpen = no
       }
     }
   }
   fields  {
-    instanceName = MakeName1
-    inputName = F:/projects/LKEB_contour_registration/data/AF_27_m_48
+    instanceName = MakeName
+    inputName = F:/projects/2DValveTracking/result/valve
     extensions = "\\.[^.]*"
     extRegExp = TRUE
-    outputTemplate = $n/slice$T/end$S.txt
-    outputName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/slice18/end60.txt
+    outputTemplate = $n$S.txt
+    outputName = F:/projects/2DValveTracking/result/valve16.txt
     predefined = void
     dicomTagA = PatientsName
     dicomTagB = PatientID
@@ -1068,28 +926,28 @@ module MakeName {
     dicomValueD = ""
     dicomValueE = ""
     dicomValueF = ""
-    userStringS = 60
-    userStringT = 18
+    userStringS = 16
+    userStringT = ""
     trimSpaces = TRUE
   }
 }
 module RunPythonScript {
   internal  {
-    frame = "1897 317 160 56"
+    frame = "1833 437 160 56"
     moduleGroupName = ""
     showNetworkPanel = true
     windows  {
       window _default {
         geometry = "-1211 83 1268 739"
         sizeHint = "904 734"
-        wasOpen = no
+        wasOpen = yes
       }
     }
   }
   fields  {
     instanceName = RunPythonScript1
     in0 = XMarkerListContainer1
-    in1 = 60
+    in1 = 16
     in2 = CSOManager
     in3 = 18
     in4 = ""
@@ -1143,7 +1001,7 @@ CTX = ctx # ctx is the network's context, not RunPythonScript's"
     wakeUpCode = ""
     code = "*import re
 slice_nr = in3
-input_file="f:\\projects\\LKEB_contour_registration\\data\\AF_27_m_48\\slice"+str(slice_nr)+"\\pointendt{0}.txt".format(in1)
+input_file="f:/projects/2DValveTracking/result2/pointendt{0}.txt".format(in1)
 
 def output_markers(input_file):
   m = ctx.module(in0)
@@ -1155,7 +1013,7 @@ def output_markers(input_file):
     for line in input:
       s = re.findall(r"[-+]?\\d*\\.\\d+|\\d+",line)
       pos = map(float, s)    
-      markerlist.add([pos[0], pos[1], pos[3]+0.5], [0,0,0], 0)
+      markerlist.add([pos[0], pos[1], pos[2]+0.5], [0,0,0], 0)
     outf.touch() # notify the network the markerlist is changed
 
 def output_csos(input_file):
@@ -1169,9 +1027,9 @@ def output_csos(input_file):
     for line in input:
       s = re.findall(r"[-+]?\\d*\\.\\d+|\\d+",line)
       pos = map(float, s)    
-      all_points.append([pos[0], pos[1], pos[3]+0.5])
-    #csolist.addPolygon(all_points, False)
-    csolist.addClosedSpline(all_points, False)
+      all_points.append([pos[0], pos[1], pos[2]+0.5])
+    csolist.addPolygon(all_points, False)
+    #csolist.addClosedSpline(all_points, False)
 
 output_markers(input_file)
 output_csos(input_file)
@@ -1187,13 +1045,13 @@ output_csos(input_file)
 }
 module XMarkerListContainer {
   internal  {
-    frame = "1705 61 160 56"
+    frame = "1641 125 160 56"
     moduleGroupName = ""
     windows  {
       window _default {
         geometry = "-532 164 513 497"
         sizeHint = "500 497"
-        wasOpen = no
+        wasOpen = yes
       }
       window _automatic {
         geometry = "281 386 500 600"
@@ -1214,7 +1072,7 @@ module XMarkerListContainer {
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
-    posXYZ = "118.475684 97.921571 60.5"
+    posXYZ = "160.444086 180.298977 16.5"
     posC = 0
     posT = 0
     posU = 0
@@ -1230,13 +1088,13 @@ module XMarkerListContainer {
 }
 module SoView2DMarkerEditor {
   internal  {
-    frame = "1709 157 168 56"
-    moduleGroupName = Define-Contour
+    frame = "1629 237 168 56"
+    moduleGroupName = ""
     windows  {
       window _default {
         geometry = "1129 619 603 583"
         sizeHint = "603 583"
-        wasOpen = no
+        wasOpen = yes
       }
     }
   }
@@ -1329,14 +1187,14 @@ module SoView2DMarkerEditor {
 }
 module CSOManager {
   internal  {
-    frame = "1561 341 144 72"
+    frame = "1497 461 144 72"
     moduleGroupName = ""
     showNetworkPanel = true
     windows  {
       window _default {
         geometry = "621 288 692 565"
         sizeHint = "692 565"
-        wasOpen = no
+        wasOpen = yes
       }
       window _automatic {
         geometry = "737 417 716 600"
@@ -1412,7 +1270,7 @@ module CSOManager {
     listSingleRemoveEmptyGroupHandling = RemoveAlways
     listDefaultRemoveEmptyGroupHandling = RemoveAlways
     enableUndoRedo = TRUE
-    numUndos = 11
+    numUndos = 16
     numRedos = 0
     undoStackLimit = 16
     useSelectionCSONotification = FALSE
@@ -1454,13 +1312,13 @@ module CSOManager {
 }
 module SoView2DCSOExtensibleEditor {
   internal  {
-    frame = "2013 21 200 56"
+    frame = "1949 141 200 56"
     moduleGroupName = ""
     windows  {
       window _default {
         geometry = "878 418 394 369"
         sizeHint = "394 369"
-        wasOpen = no
+        wasOpen = yes
       }
     }
   }
@@ -1503,7 +1361,7 @@ module SoView2DCSOExtensibleEditor {
 }
 module SoGroup {
   internal  {
-    frame = "1721 -203 80 56"
+    frame = "1649 -83 96 56"
     moduleGroupName = ""
     windows  {
       window _viewer {
@@ -1519,7 +1377,7 @@ module SoGroup {
 }
 module SoCSOVisualizationSettings {
   internal  {
-    frame = "2013 125 184 56"
+    frame = "1949 245 184 56"
     moduleGroupName = ""
     windows  {
       window _default {
@@ -1642,18 +1500,13 @@ module SoCSOVisualizationSettings {
 }
 module View2D {
   internal  {
-    frame = "1325 -259 120 56"
-    moduleGroupName = Define-Contour
+    frame = "1517 21 120 56"
+    moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "1352 243 400 400"
+        geometry = "-888 199 656 714"
         sizeHint = "400 400"
-        wasOpen = no
-      }
-      window _automatic {
-        geometry = "183 386 500 600"
-        sizeHint = "260 223"
-        wasOpen = no
+        wasOpen = yes
       }
     }
   }
@@ -1662,7 +1515,7 @@ module View2D {
     inventorInputOn = TRUE
     inventorOutputOn = FALSE
     view2DExtensionsOn = TRUE
-    startSlice = 60
+    startSlice = 16
     numSlices = 1
     numXSlices = 1
     sliceStep = 1
@@ -1680,15 +1533,15 @@ module View2D {
     snapToCenter = TRUE
     zoomMode = VIEW2D_AUTO_ZOOM
     unzoomOnImageChange = FALSE
-    sliceZoom = 1.9858388
-    sliceZoomSynced = 1.9858388
+    sliceZoom = 1
+    sliceZoomSynced = 1
     baseColor = "1 1 1"
     margin = "2 2"
-    sliceOrigin = "45.668155670166 28.7604560852051"
+    sliceOrigin = "0 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 1560
-    lutWidth = 3120
+    lutCenter = 322.5
+    lutWidth = 645
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -1707,177 +1560,40 @@ module View2D {
     hiResRendering = TRUE
   }
 }
-module RunPythonScript {
-  internal  {
-    frame = "1185 397 160 56"
-    moduleGroupName = ""
-    showNetworkPanel = true
-    windows  {
-      window _default {
-        geometry = "361 305 1248 734"
-        sizeHint = "897 734"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = CreateSliceFolders
-    in0 = F:/projects/LKEB_contour_registration/data/AF_27_m_48
-    in1 = 0
-    in2 = ""
-    in3 = ""
-    in4 = ""
-    in5 = ""
-    in6 = ""
-    in7 = ""
-    in8 = ""
-    in9 = ""
-    inComment0 = in0
-    inComment1 = in1
-    inComment2 = in2
-    inComment3 = in3
-    inComment4 = in4
-    inComment5 = in5
-    inComment6 = in6
-    inComment7 = in7
-    inComment8 = in8
-    inComment9 = in9
-    autoApply0 = TRUE
-    autoApply1 = TRUE
-    autoApply2 = TRUE
-    autoApply3 = TRUE
-    autoApply4 = TRUE
-    autoApply5 = TRUE
-    autoApply6 = TRUE
-    autoApply7 = TRUE
-    autoApply8 = TRUE
-    autoApply9 = TRUE
-    out0 = ""
-    out1 = ""
-    out2 = ""
-    out3 = ""
-    out4 = ""
-    out5 = ""
-    out6 = ""
-    out7 = ""
-    out8 = ""
-    out9 = ""
-    outComment0 = out0
-    outComment1 = out1
-    outComment2 = out2
-    outComment3 = out3
-    outComment4 = out4
-    outComment5 = out5
-    outComment6 = out6
-    outComment7 = out7
-    outComment8 = out8
-    outComment9 = out9
-    initCode = "# For backward compatibility, set up CTX as alias for ctx
-CTX = ctx # ctx is the network's context, not RunPythonScript's"
-    wakeUpCode = ""
-    code = "import os
-in0
-
-for i in range(0, in1):
-  slicedir = in0+'/slice'+str(i)
-  if not os.path.exists(slicedir):
-		os.makedirs(slicedir)
-
-"
-    finalizeCode = ""
-    showFields = TRUE
-    showInitCode = FALSE
-    showWakeUpCode = FALSE
-    showCode = TRUE
-    showFinalizeCode = FALSE
-    showConsole = TRUE
-  }
-}
-module itkImageFileReader {
-  internal  {
-    frame = "1673 -27 144 56"
-    moduleGroupName = ""
-    windows  {
-      window _default {
-        geometry = "989 438 328 395"
-        sizeHint = "328 395"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = itkImageFileReader1
-    fileDataType = int16
-    autoDetermineDataType = FALSE
-    correctSubVoxelShift = TRUE
-    fileDimension = 3
-    info = "Loading okay."
-    numDims = 3
-    fileType = Binary
-    componentType = "unsigned int16"
-    pixelType = SCALAR
-    loaderType = MetaImageIO
-    outputMetaDataStr = "ITK_InputFilterName : MetaImageIO
-"
-    suppressErrorPosting = FALSE
-    unresolvedFileName = F:/projects/LKEB_contour_registration/data/AF_27_m_48/4D_18.mhd
-  }
-}
 connections  {
-  View2D.inImage = SubImage.output0
-  itkImageFileWriter.input0 = ImagePropertyConvert.output0
-  itkImageFileWriter.unresolvedFileName = MakeName.outputName
-  SubImage.input0 = DirectDicomImport.output0
-  SubImage.z = Counter.currentValue
-  InterleaveDimension.input0 = SubImage.output0
+  View2D.inImage = ImagePropertyConvert.output0
+  Info.input0 = InterleaveDimension.output0
+  InterleaveDimension.input0 = DirectDicomImport.output0
   ImagePropertyConvert.input0 = InterleaveDimension.output0
   ImagePropertyConvert.voxelSizeX = Info.voxelSizeX
   ImagePropertyConvert.voxelSizeY = Info.voxelSizeY
-  Info.input0 = DirectDicomImport.output0
-  MakeName.inputName = FileDirectory.rootPath
-  MakeName.userStringS = FileDirectory.rootPath
-  MakeName.userStringT = SubImage.z
-  itkImageFileReader.unresolvedFileName = itkImageFileWriter.unresolvedFileName
-  View2D1.inImage = itkImageFileReader1.output0
-  View2D1.inInvPostLUT = SoGroup.self
-  Info1.input0 = SubImage.output0
+  itkImageFileWriter.input0 = ImagePropertyConvert.output0
   XMarkerListContainer.inXMarkerList = SoView2DMarkerEditor.outXMarkerList
   SaveContour.in0 = XMarkerListContainer.instanceName
-  SaveContour.in1 = MakeName1.outputName
-  MakeName1.inputName = FileDirectory.rootPath
-  MakeName1.userStringS = View2D2.startSlice
-  MakeName1.userStringT = Counter.currentValue
+  SaveContour.in1 = MakeName.outputName
+  SaveContour.in2 = View2D1.startSlice
+  itkImageFileReader1.unresolvedFileName = itkImageFileWriter.unresolvedFileName
+  Info1.input0 = itkImageFileReader1.output0
+  View2D1.inImage = itkImageFileReader1.output0
+  View2D1.inInvPreLUT = SoView2DMarkerEditor.self
+  MakeName.userStringS = View2D1.startSlice
   RunPythonScript1.in0 = XMarkerListContainer1.instanceName
-  RunPythonScript1.in1 = View2D1.startSlice
+  RunPythonScript1.in1 = View2D2.startSlice
   RunPythonScript1.in2 = CSOManager.instanceName
-  RunPythonScript1.in3 = Counter.currentValue
   SoView2DMarkerEditor1.inXMarkerList = XMarkerListContainer1.outXMarkerList
   SoView2DCSOExtensibleEditor.inCSOList = CSOManager.outCSOList
   SoView2DCSOExtensibleEditor.inVisualizationSettings = SoCSOVisualizationSettings.outVisualizationSettings
   SoGroup.children = "SoView2DMarkerEditor1.self SoView2DCSOExtensibleEditor.self"
-  View2D2.inImage = itkImageFileReader.output0
-  View2D2.inInvPreLUT = SoView2DMarkerEditor.self
-  CreateSliceFolders.in0 = MakeName.inputName
-  CreateSliceFolders.in1 = Info.sizeZ
-  itkImageFileReader1.unresolvedFileName = MakeName.outputName
+  View2D2.inImage = itkImageFileReader1.output0
+  View2D2.inInvPreLUT = SoGroup.self
+  View2D2.startSlice = View2D1.startSlice
 }
 networkModel  {
   parentItems  {
     0  {
       MLABNetworkModelItem MLABNetworkModelItemGroup {
-        uniqueId = 60
-        objectName = Read-Series
-        parentUniqueId = 0
-        color  {
-          r = 45
-          g = 226
-          b = 226
-          a = 40
-        }
-      }
-      MLABNetworkModelItem MLABNetworkModelItemGroup {
-        uniqueId = 108
-        objectName = Define-Contour
+        uniqueId = 73
+        objectName = "Save valve Position"
         parentUniqueId = 0
         color  {
           r = 45
