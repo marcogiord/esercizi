@@ -23,14 +23,15 @@ def run_registration(outputdir):
         os.makedirs(outputdir)
     # run elastix # # create moving/atlas image string
     image_file = input + "/testDataset2Ch.mhd"
-    process = subprocess.Popen([elastixbin,'-threads',str(8),'-f', image_file, '-m', image_file, '-out', outputdir, '-p', par_dir + "/par000.forward.txt", '-p',
+    process = subprocess.Popen([elastixbin,'-threads',str(8),'-f', image_file, '-m', image_file, '-out', outputdir,
+                                '-p', par_dir + "/par000.forward.txt", '-p',
          par_dir + "/par000.inverse.txt"])
     stdout, stderr = process.communicate()
     # convert
-    #process = subprocess.Popen([pxcastbin, '-in', outputdir + "/result.0.mhd", '-out', outputdir + "fwd.mhd"])
-    #stdout, stderr = process.communicate()
-    #process = subprocess.Popen([pxcastbin, '-in', outputdir + "/result.1.mhd", '-out', outputdir + "inv.mhd"])
-    #stdout, stderr = process.communicate()
+    process = subprocess.Popen([pxcastbin, '-in', outputdir + "result.0.mhd", '-out', outputdir + "fwd.mhd"])
+    stdout, stderr = process.communicate()
+    process = subprocess.Popen([pxcastbin, '-in', outputdir + "result.1.mhd", '-out', outputdir + "inv.mhd"])
+    stdout, stderr = process.communicate()
 
 def find_index_frame(inputdir):
     index_frame = 0
@@ -50,7 +51,9 @@ def combine(index_frame, outputdir):
     combine_file0 = outputdir + "Combined.0.txt"
     combine_file1 = outputdir + "Combined.1.txt"
     # combine transformation
-    cmd = 'python ' + combinepy + ' point ' + transform_file0 + ' ' + transform_file1 + ' ' + combine_file0 + ' ' + combine_file1 + ' ' + str(index_frame)
+    cmd = 'python ' + combinepy + ' point ' + transform_file0 + ' ' + transform_file1 + ' ' + combine_file0 + ' ' \
+          + combine_file1 + ' ' + str(index_frame)
+    print(cmd)
     process = subprocess.Popen(cmd)
     stdout, stderr = process.communicate()
 
@@ -72,7 +75,8 @@ def post_processing(outputdir, nr_frames):
                     s[2] = p  # set current frame
                     replica.write("{0} {1} {2}\n".format(*s))
         # call trasformix
-        process = subprocess.Popen([transformix, '-tp', outputdir + "Combined.1.txt", '-def', file_replicated_end, '-out', outputdir])
+        process = subprocess.Popen([transformix, '-tp', outputdir + "Combined.1.txt", '-def', file_replicated_end,
+                                    '-out', outputdir])
         stdout, stderr = process.communicate()
         # read output points file
         file_output = outputdir + "outputpoints.txt"
